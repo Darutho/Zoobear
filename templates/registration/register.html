@@ -1,0 +1,103 @@
+<!-- register.html -->
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript">// <![CDATA[
+        function preloader(){
+            console.log("Reachded");
+            document.getElementById("loading").style.display = "block";
+            document.getElementById("content").style.opacity = .2;
+        }//preloader
+       // window.onload = preloader;
+</script>
+<!-- <link rel="stylesheet" href="../../static/css/bar.css"> -->
+
+{% block content %}
+
+
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Zoobear Registration</title>
+
+
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:600'>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <link rel="stylesheet" href="../../static/css/style_login.css">
+
+
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand topnav" href="/login/home">Home</a>
+                <a class="navbar-brand topnav" href="/profile/profile">Profile</a>
+                <a class="navbar-brand topnav" href="/books/delete_books">My Books</a>
+                <!-- <a class="navbar-brand topnav" href="/books/delete_books">Books Guide</a> -->
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/home/bookguide">Books Guide</a>
+                    </li>
+                    <li>
+                        <a href="/home/faq">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="/home/contact">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="/login/login">Login</a>
+                    </li>
+                    <li>
+                        <a href="/login/register">Sign Up</a>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+<div id="loading" >
+    <h1 class="pw">Please Wait</h1>
+    <img src="../../static/img/animal.gif">
+</div>
+
+  <div id="content">
+  <div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab"></label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+		<div class="login-form">
+			<div class="sign-in-htm">
+				<div class="group">
+                  <form method="post" action="./">{% csrf_token %}
+				        <table  border="0">
+				            {{ form.as_table }}
+				        </table>
+				        <button type="submit" class="button" value="Register">Register</button>
+				        <!-- <button type="button" onclick="window.location.href='/login/' ">Login</button> -->
+			       </form>
+			    </div>
+
+
+
+
+
+
+
+		</div>
+	</div>
+</div>
+</div>
+
+
+</body>
+</html>
+{% endblock %}
+

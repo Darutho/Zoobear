@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+
+
+<link rel="stylesheet" href="../../static/css/cards.css">
+
+ <html lang="en">
+<head>
+    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+  <title></title>
+          
+<link href="http://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" rel="stylesheet" type="text/css">
+
+<!--   CSS for 147 Colors   -->
+<link href="http://www.colorname.xyz/style.css" rel="stylesheet" type="text/css"> 
+    
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<header class="lv-bg">
+  <h1 class="site-title">Buy Books</h1>
+  <p>Select multiple books to buy</p>  
+</header>
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">// <![CDATA[
+        function preloader(){
+            console.log("Reachded");
+            document.getElementById("loading").style.display = "block";
+            document.getElementById("content").style.opacity = .2;
+        }//preloader
+       // window.onload = preloader;
+</script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="../../static/css/bar.css">
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css"> -->
+</head>
+<body>
+<div id="loading" >
+    <h1 class="pw">This takes a while...</h1>
+    <img src="../../static/img/animal.gif">
+</div>
+
+  <div id="content">
+    <form action="/books/buy_books/" method="POST">{% csrf_token %}
+      <!-- <table id="example" class="display" width="100%" cellspacing="0"> -->
+            <div class="container-fluid inner">
+              <table id="example"  class="tableizer-table">
+                 
+              <thead>
+                  <tr class="tableizer-firstrow">
+                      <th>Book Name</th>
+                      <th>Author Name</th>
+                      <th>Subject</th>
+                      <th>Description</th>
+                      <th>Price</th>
+                      <th>Buy</th>
+                     
+                  </tr>
+             
+              </thead>
+              <!-- <tfoot>
+                  <tr>
+                     <th>Book Name</th>
+                      <th>Author Name</th>
+                      <th>Subject</th>
+                      <th>Price</th>
+                      <th>Buy</th>
+                  </tr>
+              </tfoot> -->
+              <tbody>
+              {% for book in book %}
+              <tr>
+                
+                <td>{{book.book_name}}</td>
+                <td>{{book.author_name}}</td>
+                <td> {{book.subject}} </td>
+                <td> {{book.description}} </td>
+                <td> {{book.price}} </td>
+
+              
+                <td><input type="checkbox" name="cbook" value={{book.auto_increment_id}}></input></td>
+               
+              </tr> 
+            {% endfor %}
+        </tbody>
+      </table>
+        <div align="center">
+          <button type="submit" onclick="preloader()" value="submit" id="add-button" class="button button2" ><span>Buy Books</span></button>
+          </div>
+    </form>
+  </div>
+
+  
+<script type="text/javascript" src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+<script>
+
+   $(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+</body>
+</html>

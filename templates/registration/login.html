@@ -1,0 +1,175 @@
+{% block content %}
+    {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+{% endblock %}
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Zoobear Login</title>
+
+
+</head>
+
+<body>
+
+
+  
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:600'>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <link rel="stylesheet" href="../../static/css/style_login.css">
+
+  
+</head>
+
+<body>
+<!-- <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            
+            <div class="navbar-header">
+                <a class="navbar-brand topnav" href="/">Home</a>
+                <a class="navbar-brand topnav" href="/profile/profile">Profile</a>
+                <a class="navbar-brand topnav" href="/books/delete_books">My Books</a>
+                
+            </div>
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/home/bookguide">Books Guide</a>
+                    </li>
+                    <li>
+                        <a href="/home/faq">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="/home/contact">Contact Us</a>
+                    </li>
+                 
+                </ul>
+            </div>
+            
+        </div>
+       
+    </nav> -->
+  <div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+		<div class="login-form">
+			<div class="sign-in-htm">
+                 <form class="form" method="post" action="." >{% csrf_token %}
+                       <div class="group">
+                            <label for="user" class="label" style="color:#ffffff;" ><h2>Username</h2></label>
+                             <input id="user" class="input" type="text" class="label" placeholde+r="" name="username">
+                       </div>
+                       <div class="group">
+                            <label for="pass" class="label" style="color:#ffffff;"><h2>Password</h2></label>
+                            <input id="pass" class="input" type="password" class="label" placeholder="Password" name="password">
+                        </div>
+                        <div class="group">
+                            <button type="submit"  class="button" value="Login" id="login-button">Login</button>
+                        </div>
+                        <div class="group">
+                            <button type="button" class="button" onclick="window.location.href='/login/register' ">Register</button>
+                        </div>
+                        <input type="hidden" name="next" value="/login/home" />
+                 </form>
+
+
+
+
+
+
+
+				<!-- <form class="form" method="post" action="." >{% csrf_token %}
+					<div class="group">
+						<label for="user" class="label">Username</label>
+						<input id="user" type="text" class="input">
+					</div>
+					<div class="group">
+						<label for="pass" class="label">Password</label>
+						<input id="pass" type="password" class="input" data-type="password">
+					</div>
+					
+					<div class="group">
+						<button type="submit"  value="Login" id="login-button">Login</button>
+                        <input type="hidden" name="next" value="/login/home" />
+					</div>
+				</form> -->
+			</div>
+			<!-- <div class="sign-up-htm">
+				    
+                       
+                            <form method="post" action="./">{% csrf_token %}
+                               <div class="group">
+                                    <p>
+                                    <label for="user" class="label">Username</label>
+                                    <input id="user" type="text" class="input">
+                                    </p>
+                                </div>
+                                <div class="group">
+                                    <p>
+                                    <label for="pass" class="label">Password</label>
+                                    <input id="pass" type="password" class="input" data-type="password">
+                                    </p>
+                                </div>
+                                <div class="group">
+                                    <p>
+                                    <label for="pass" class="label">Repeat Password</label>
+                                    <input id="pass" type="password" class="input" data-type="password">
+                                    </p>
+                                </div>
+                                <div class="group">
+                                    <p>
+                                    <label for="pass" class="label">Email Address</label>
+                                    <input id="pass" type="text" class="input">
+                                    </p>
+                                </div>
+                                <div class="group">
+                                <button type="submit" value="Register">Register</button>
+                                <button type="button" onclick="window.location.href='/login/' ">Login</button>
+                            </form>
+                        
+                    
+
+
+
+
+
+
+
+
+
+                <div class="group">
+					<label for="user" class="label">Username</label>
+					<input id="user" type="text" class="input">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input id="pass" type="password" class="input" data-type="password">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Repeat Password</label>
+					<input id="pass" type="password" class="input" data-type="password">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Email Address</label>
+					<input id="pass" type="text" class="input">
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Sign Up">
+				</div>
+				<div class="hr"></div>
+				<div class="foot-lnk">
+					<label for="tab-1">Already Member?</a>
+				</div>
+			</div> -->
+		</div>
+	</div>
+</div>
+  
+  
+</body>
+</html>

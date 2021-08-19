@@ -1,0 +1,22 @@
+div#content {
+    display: block;
+    }
+ 
+div#loading {
+    /*top: 200 px;*/
+    margin: 100px;
+    left: 40%;
+    position: fixed;
+    padding: 10px;
+    /*border: 5px solid green;*/
+    display: none;
+    z-index: 1000;
+    /*width: 160px;
+    height: 24px;*/
+    /*background: url(../img/animal.gif) no-repeat;*/
+    cursor: wait;
+    }
+
+.pw{
+    text-align: center;
+}

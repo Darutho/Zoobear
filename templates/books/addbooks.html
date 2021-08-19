@@ -1,0 +1,54 @@
+<!-- register.html -->
+
+
+{% block content %}
+  
+
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Add Books</title>
+  
+  
+  <!-- <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:600'> -->
+<!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ -->      
+ <link rel="stylesheet" href="../../static/css/style_login3.css">
+
+  
+</head>
+
+<body>
+
+  <div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab"></label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+		<div class="login-form">
+			<div class="sign-in-htm">
+				<div class="group">
+                  <form method="post" action="./">{% csrf_token %}
+				        <table  border="0">
+				            {{ form.as_table }}
+				        </table>
+				        <button type="submit" class="button" value="Register">Add Book</button>
+				        <!-- <button type="button" onclick="window.location.href='/login/' ">Login</button> -->
+			       </form>
+			    </div>
+
+
+
+
+
+
+
+		</div>
+	</div>
+</div>
+  
+  
+</body>
+</html>
+{% endblock %}

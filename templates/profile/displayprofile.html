@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="../../static/css/dp.css" rel="stylesheet">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+
+    <title>Profile</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+        <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <!--   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button> -->
+                <a class="navbar-brand topnav" href="/login/home">Home</a>
+                <a class="navbar-brand topnav" href="/profile/profile">Profile</a>
+                <a class="navbar-brand topnav" href="/books/delete_books">My Books</a>
+                <!-- <a class="navbar-brand topnav" href="/books/delete_books">Books Guide</a> -->
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/books/notif">Potential Buyers</a>
+                </li>
+                <li>
+                    <a href="/home/bookguide">Books Guide</a>
+                    </li>
+                    <li>
+                        <a href="/home/faq">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="/home/contact">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="/login/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <div class="container">
+      <div class="row">
+      <br>
+      <br>
+      <br>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+
+
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">{% for profile in profile %}
+                                          {{profile.first_name}} {{profile.last_name}}
+                                          </h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
+
+                <div class=" col-md-9 col-lg-9 ">
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Username:</td>
+                        <td>{{user.username}}</td>
+                      </tr>
+                      <tr>
+                        <td>Email:</td>
+                        <td>{{user.email}}</td>
+                      </tr>
+                      <tr>
+                        <td>Phone:</td>
+                        <td>{{profile.ph}}</td>
+                      </tr>
+
+                         <!-- <tr> -->
+                     <!--  <tr>
+                        <td>Gender</td>
+                        <td>Female</td>
+                      </tr>
+                      <tr>
+                        <td>Home Address</td>
+                        <td>Kathmandu,Nepal</td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td><a href="mailto:info@support.com">info@support.com</a></td>
+                      </tr>
+                        <td>Phone Number</td>
+                        <td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
+                      </td> -->
+
+                      <!-- </tr> -->
+
+                    </tbody>
+                  </table>
+                  {% endfor %}
+                  <a href="#" class="btn btn-primary">Update Profile Picture</a>
+                  <a href="/profile/updatemyprofile/" class="btn btn-primary">Edit Profile</a>
+                </div>
+              </div>
+            </div>
+                 <!-- <div class="panel-footer">
+                        <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                        <span class="pull-right">
+                            <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                        </span>
+                    </div> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    var panels = $('.user-infos');
+    var panelsButton = $('.dropdown-user');
+    panels.hide();
+
+    //Click dropdown
+    panelsButton.click(function() {
+        //get data-for attribute
+        var dataFor = $(this).attr('data-for');
+        var idFor = $(dataFor);
+
+        //current button
+        var currentButton = $(this);
+        idFor.slideToggle(400, function() {
+            //Completed slidetoggle
+            if(idFor.is(':visible'))
+            {
+                currentButton.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>');
+            }
+            else
+            {
+                currentButton.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
+            }
+        })
+    });
+
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('button').click(function(e) {
+        e.preventDefault();
+        alert("This is a demo.\n 🙂");
+    });
+});
+    </script>
+</body>
+</html>

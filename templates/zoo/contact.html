@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Complaint/Feedback</title>
+  
+  
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:600'>
+
+      <link rel="stylesheet" href="../../static/css/style_login2.css">
+ 
+</head>
+
+<body>
+
+  <div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab"></label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+		<div class="login-form">
+			<div class="sign-in-htm">
+				<div class="group">
+				<h3>Your feedback and complaints are welcome!</h3>
+                  <form method="post" action="./">{% csrf_token %}
+				        <table  border="0">
+				            {{ form.as_table }}
+				        </table>
+				        <button type="submit" class="button" value="Register" >Submit</button>
+				        <br>
+				        <button type="button" class="button"  onclick="window.location.href='/login/home' ">Back</button>
+			       </form>
+			    </div>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>
+
+  
+  
+</body>
+</html>
+
